@@ -11,7 +11,7 @@ Welcome to my repository for Bioinformatics 213 Fall 2025.
 
 Courtney Anderson's website (PID:A69038035)
 
-[View the Project on GitHub](https://github.com/cea002/bggn213_github)
+[View the Project on GitHub](https://github.com/cea002/bggn213_github/blob/main/index.md)
 
 ---
 
