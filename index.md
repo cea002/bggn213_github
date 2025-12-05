@@ -20,17 +20,17 @@ Welcome to my repository for Bioinformatics 213 Fall 2025.
 
 ### *Introductory Material: Working With R*
 
-- **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](https://github.com/cea002/bggn213_github/tree/main/Class5/)
-- **Class 6** – [Creating R Functions](https://github.com/cea002/bggn213_github/tree/main/Class6)
-- **Class 7** – [R Packages, working with CRAN, and Bioconductor](https://github.com/cea002/bggn213_github/tree/main/Class7)
+- **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](./Class5/)
+- **Class 6** – [Creating R Functions](./Class6)
+- **Class 7** – [R Packages, working with CRAN, and Bioconductor](./Class7)
 
 ### *Using R and Other Tools for Bioinformatics Analysis*
 
-- **Class 8** – [An Introduction to Machine Learning (Hierarchical Clustering)](https://github.com/cea002/bggn213_github/tree/main/Class8)
-- **Class 9** – [Analyzing High Dimensional Datasets and Unsupervised Learning](https://github.com/cea002/bggn213_github/tree/main/Class9)
-- **Class 10** – [Structural Bioinformatics: Analyzing Protein Structure and Function](https://github.com/cea002/bggn213_github/tree/main/Class10)
-- **Class 12** – [Drug Discovery: Techniques and Analysis](https://github.com/cea002/bggn213_github/tree/main/Class12)
-- **Class 13** – [Genome Informatics and High-Throughput Sequencing](https://github.com/cea002/bggn213_github/tree/main/Class13)
+- **Class 8** – [An Introduction to Machine Learning (Hierarchical Clustering)](./Class8)
+- **Class 9** – [Analyzing High Dimensional Datasets and Unsupervised Learning](./Class9)
+- **Class 10** – [Structural Bioinformatics: Analyzing Protein Structure and Function](./Class10)
+- **Class 12** – [Drug Discovery: Techniques and Analysis](./Class12)
+- **Class 13** – [Genome Informatics and High-Throughput Sequencing](./Class13)
 - **Class 14** – [Transcriptomics and RNA-Seq Analysis](./Class14/)
 
 ---
