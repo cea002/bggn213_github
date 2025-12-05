@@ -1,17 +1,9 @@
----
-author:
-- Courtney Anderson
-authors:
-- Courtney Anderson
-title: "Class 6: R functions"
-toc-title: Table of contents
----
+# Class 6: R functions
+Courtney Anderson
 
--   [Our first (silly)
-    function](#our-first-silly-function){#toc-our-first-silly-function}
--   [A second function](#a-second-function){#toc-a-second-function}
--   [A protein generating
-    function](#a-protein-generating-function){#toc-a-protein-generating-function}
+-   [Our first (silly) function](#our-first-silly-function)
+-   [A second function](#a-second-function)
+-   [A protein generating function](#a-protein-generating-function)
 
 All functions in R have at least 3 things -A **name** we pick this an
 use it to call our function -Input **arguments** (there can be multiple)
@@ -21,25 +13,19 @@ use it to call our function -Input **arguments** (there can be multiple)
 
 Write a function to add some numbers
 
-::: cell
-``` {.r .cell-code}
+``` r
 add <- function(x, y=1) {
   x+y
 }
 ```
-:::
 
 Now we can call this funcion
 
-:::: cell
-``` {.r .cell-code}
+``` r
 add(c(10, 10), 100)
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] 110 110
-:::
-::::
 
 ## A second function
 
@@ -48,46 +34,35 @@ specifiec length:
 
 The `sample` function can be helpful here
 
-:::: cell
-``` {.r .cell-code}
+``` r
 sample(c("A", "C","G","T"), size=50, replace= TRUE) 
 ```
 
-::: {.cell-output .cell-output-stdout}
-     [1] "T" "T" "T" "A" "C" "G" "G" "A" "A" "A" "G" "T" "T" "C" "G" "T" "G" "C" "G"
-    [20] "G" "T" "C" "T" "A" "T" "T" "A" "G" "A" "G" "C" "C" "C" "T" "A" "G" "T" "G"
-    [39] "C" "C" "T" "C" "T" "A" "A" "G" "A" "A" "C" "T"
-:::
-::::
+     [1] "C" "C" "C" "C" "A" "A" "A" "T" "A" "T" "T" "T" "G" "G" "A" "C" "T" "T" "G"
+    [20] "G" "T" "C" "G" "C" "T" "G" "G" "C" "T" "A" "A" "A" "G" "G" "A" "G" "C" "C"
+    [39] "A" "A" "G" "T" "A" "C" "T" "G" "A" "A" "A" "A"
 
-I want a 1 element long character vector that looks like this "CACGC"
-not "C" "A" "C" "A" "G" "C"
+I want a 1 element long character vector that looks like this “CACGC”
+not “C” “A” “C” “A” “G” “C”
 
-::: cell
-``` {.r .cell-code}
+``` r
 generate_dna <- function(size=50) {
 v <- sample(c("A", "C","G","T"), size= size, replace= TRUE) 
 paste(v,collapse="")
 }
 ```
-:::
 
 Test it:
 
-:::: cell
-``` {.r .cell-code}
+``` r
 generate_dna(60)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "TAACATTACCCAAACTTTCACACCTAGTTTCACTATAATCACCCTCACGAATGAGGCCGC"
-:::
-::::
+    [1] "AAACGTACCAAGTCAATACTTACGCACGGCCGTGCCGGTCCGGAAGAACCCATTTGACCG"
 
 =
 
-:::: cell
-``` {.r .cell-code}
+``` r
 fasta <- TRUE
 if(fasta) {
   cat("HELLO You!")
@@ -96,25 +71,19 @@ if(fasta) {
 }
 ```
 
-::: {.cell-output .cell-output-stdout}
     HELLO You!
-:::
-::::
 
 Add the ability to return a multi-element vector or a single element
 fasta like vector.
 
-::: cell
-``` {.r .cell-code}
+``` r
 generate_fasta <- function(size=50, fasta=TRUE) {
 v <- sample(c("A", "C","G","T"), size= size, replace= TRUE) 
 s <-paste(v,collapse="")
 }
 ```
-:::
 
-::: cell
-``` {.r .cell-code}
+``` r
 generate_fasta <- function(size=50, fasta=TRUE) {
   v <- sample(c("A", "C","G","T"), size= size, replace = TRUE) 
   s <- paste(v, collapse = "")
@@ -126,20 +95,14 @@ generate_fasta <- function(size=50, fasta=TRUE) {
   }
 }
 ```
-:::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 generate_fasta(60)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "TATAATCCCCAGTGACGGGGTTCCTCCAAACATACTCACGAAGATTAGTCTGGTGAAGGG"
-:::
-::::
+    [1] "GAGAGTACTAAAGCGAAAAGGGACTAGCGGTAAGTTGTCCGTGCGACAGGTACAACTCGG"
 
-::: cell
-``` {.r .cell-code}
+``` r
 generate_fasta <- function(size=50, fasta=TRUE) {
   v <- sample(c("A", "C","G","T"), size= size, replace = TRUE) 
   s <- paste(v, collapse = "")
@@ -151,34 +114,24 @@ generate_fasta <- function(size=50, fasta=TRUE) {
   }
 }
 ```
-:::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 generate_fasta(fasta=FALSE)
 ```
 
-::: {.cell-output .cell-output-stdout}
-     [1] "T" "C" "C" "C" "A" "C" "G" "T" "G" "T" "C" "G" "A" "G" "T" "C" "G" "G" "A"
-    [20] "C" "C" "T" "A" "C" "T" "G" "A" "C" "T" "T" "C" "T" "C" "T" "C" "T" "G" "T"
-    [39] "A" "T" "A" "G" "C" "T" "G" "C" "A" "G" "T" "A"
-:::
-::::
+     [1] "A" "A" "T" "A" "A" "A" "C" "C" "C" "T" "T" "T" "A" "C" "C" "G" "A" "T" "C"
+    [20] "G" "C" "A" "G" "C" "T" "G" "T" "C" "C" "A" "A" "C" "T" "T" "T" "T" "A" "G"
+    [39] "G" "A" "T" "T" "A" "C" "G" "A" "G" "A" "C" "G"
 
-:::: cell
-``` {.r .cell-code}
+``` r
 generate_fasta(fasta=TRUE)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "CTCCACGGACTCCGTCGTAAAACATCCGTTACGGAAATAGCCAGGGGGAG"
-:::
-::::
+    [1] "TGCAGGCCACTTATCCCGAGAGAAGTTTGGTGCTATTGATAGAGACAAAC"
 
 ## A protein generating function
 
-::: cell
-``` {.r .cell-code}
+``` r
 generate_protein <- function(size = 50, fasta = TRUE) {
   amino_acids <- c("A", "C", "D", "E", "F", "G", "H", "I", "K", 
                    "L", "M", "N", "P", "Q", "R", "S", "T", "V", 
@@ -193,17 +146,12 @@ generate_protein <- function(size = 50, fasta = TRUE) {
   }
 }
 ```
-:::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 generate_protein(6)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "SWCGWA"
-:::
-::::
+    [1] "YEEFVA"
 
 Use our new`generate protein` function to make random protein seqeunces
 of length 6 to 12 (i.e. one length 6, on length 7, etc. up to length
@@ -211,55 +159,40 @@ of length 6 to 12 (i.e. one length 6, on length 7, etc. up to length
 
 One way to do this is brute force
 
-::::::: cell
-``` {.r .cell-code}
+``` r
 generate_protein(6)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "SQSPQG"
-:::
+    [1] "RRKQPG"
 
-``` {.r .cell-code}
+``` r
 generate_protein(7)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "SRLYWWL"
-:::
+    [1] "DCSMWSI"
 
-``` {.r .cell-code}
+``` r
 generate_protein(8)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "SNSFMEFE"
-:::
+    [1] "WFICVKLG"
 
-``` {.r .cell-code}
+``` r
 generate_protein(9)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "KPSVADECE"
-:::
-:::::::
+    [1] "TDDPLEFCV"
 
 A second way is to use `for()` loop
 
-:::: cell
-``` {.r .cell-code}
+``` r
 lengths <- 6:12
 lengths
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1]  6  7  8  9 10 11 12
-:::
-::::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 for(i in lengths) {
   cat(">",i, "\n", sep="")
   aa <- generate_protein(i)
@@ -268,34 +201,27 @@ for(i in lengths) {
 }
 ```
 
-::: {.cell-output .cell-output-stdout}
     >6
-    MTFTCV
+    HYDGRA
     >7
-    VTTFFEQ
+    PLSKMNR
     >8
-    LSHEKWAV
+    WSDIVGFN
     >9
-    KIIELQWEG
+    SKEMEGVWY
     >10
-    LAIRMFEFVT
+    FEMICSISLY
     >11
-    VLWASAVVWEV
+    PYYDTSTLIVF
     >12
-    GKGKYQETPRGK
-:::
-::::
+    GIVECEVAWGWV
 
 A third and better way to solve this is to use `apply()`, specifically
 the `sapply()` function in this case
 
-:::: cell
-``` {.r .cell-code}
+``` r
 sapply(6:12, generate_protein)
 ```
 
-::: {.cell-output .cell-output-stdout}
-    [1] "PMYSGI"       "GECDPQY"      "GVVIMDEK"     "GKSVMSQSI"    "VEDHNVMAGC"  
-    [6] "FLSMMYGHSEV"  "KYPETKYTMLYI"
-:::
-::::
+    [1] "CDHYWW"       "PPWMYQP"      "FMITQTQR"     "RLAKHGDCP"    "IHNWTRNTWT"  
+    [6] "ELDIFNFFLFN"  "LFNMYDSYIRTN"
