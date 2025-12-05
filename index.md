@@ -1,1 +1,4 @@
-I really need this to work. 
+# Bioinformatics class
+Welcome to my repository for Bioinformatics 213 Fall 2025.
+
+## Index of material
