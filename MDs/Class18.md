@@ -1,40 +1,28 @@
----
-author:
-- "Courtney Anderson (PID:A69038035)"
-authors:
-- "Courtney Anderson (PID:A69038035)"
-title: "Mini Project: Investigating Pertussis Resurgence"
-toc-title: Table of contents
----
+# Mini Project: Investigating Pertussis Resurgence
+Courtney Anderson (PID:A69038035)
 
--   [Background](#background){#toc-background}
+-   [Background](#background)
 -   [Investigating pertussis cases by
-    year](#investigating-pertussis-cases-by-year){#toc-investigating-pertussis-cases-by-year}
+    year](#investigating-pertussis-cases-by-year)
 -   [A tale of two vaccines wP and
-    aP](#a-tale-of-two-vaccines-wp-and-ap){#toc-a-tale-of-two-vaccines-wp-and-ap}
--   [Exploring CMI-PB
-    data](#exploring-cmi-pb-data){#toc-exploring-cmi-pb-data}
-    -   [CMI-PB API return JSON
-        data](#cmi-pb-api-return-json-data){#toc-cmi-pb-api-return-json-data}
-    -   [Side Note: Working with
-        Dates](#side-note-working-with-dates){#toc-side-note-working-with-dates}
-    -   [Joining multiple
-        tables](#joining-multiple-tables){#toc-joining-multiple-tables}
--   [Examine IgG Ab Titer
-    Levels](#examine-igg-ab-titer-levels){#toc-examine-igg-ab-titer-levels}
--   [Obtaining CMI-PB RNAseq
-    data](#obtaining-cmi-pb-rnaseq-data){#toc-obtaining-cmi-pb-rnaseq-data}
+    aP](#a-tale-of-two-vaccines-wp-and-ap)
+-   [Exploring CMI-PB data](#exploring-cmi-pb-data)
+    -   [CMI-PB API return JSON data](#cmi-pb-api-return-json-data)
+    -   [Side Note: Working with Dates](#side-note-working-with-dates)
+    -   [Joining multiple tables](#joining-multiple-tables)
+-   [Examine IgG Ab Titer Levels](#examine-igg-ab-titer-levels)
+-   [Obtaining CMI-PB RNAseq data](#obtaining-cmi-pb-rnaseq-data)
     -   [For example use the following
-        URL](#for-example-use-the-following-url){#toc-for-example-use-the-following-url}
+        URL](#for-example-use-the-following-url)
 
 # Background
 
 Pertussis (more commonly known as whooping cough) is a highly contagious
 respiratory disease caused by the bacterium Bordetella pertussis (Figure
 1). People of all ages can be infected leading to violent coughing fits
-followed by a characteristic high-pitched "whoop" like intake of breath.
+followed by a characteristic high-pitched “whoop” like intake of breath.
 Children have the highest risk for severe complications and death.
-Recent estimates from the WHO indicate that \~16 million cases and
+Recent estimates from the WHO indicate that ~16 million cases and
 200,000 infant deaths are due to pertussis annually (Black et al. 2010).
 
 # Investigating pertussis cases by year
@@ -45,12 +33,11 @@ National Notifiable Diseases Surveillance System (NNDSS). We can view
 this data on the CDC website here:
 https://www.cdc.gov/pertussis/surv-reporting/cases-by-year.html
 
-> Q1. With thdata.frame help of the R "addin" package datapasta assign
+> Q1. With thdata.frame help of the R “addin” package datapasta assign
 > the CDC pertussis case number data to a data frame called cdc and use
 > ggplot to make a plot of cases numbers over time.
 
-::::: cell
-``` {.r .cell-code}
+``` r
 library(datapasta)
 cdc <- data.frame(
                           Year = c(1922L,
@@ -91,11 +78,9 @@ cdc <- data.frame(
 library (ggplot2)
 ```
 
-::: {.cell-output .cell-output-stderr}
     Warning: package 'ggplot2' was built under R version 4.5.2
-:::
 
-``` {.r .cell-code}
+``` r
 ggplot(cdc) +
   aes(Year, No..Reported.Pertussis.Cases) +
   geom_point() +
@@ -107,30 +92,26 @@ ggplot(cdc) +
   )
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-1-1.png)
-:::
-:::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-1-1.png)
 
 # A tale of two vaccines wP and aP
 
 Two types of pertussis vaccines have been developed: whole-cell
 pertussis (wP) and acellular pertussis (aP). The first vaccines were
-composed of 'whole cell' (wP) inactivated bacteria. The latter aP
+composed of ‘whole cell’ (wP) inactivated bacteria. The latter aP
 vaccines use purified antigens of the bacteria (the most important
 pertussis components for our immune system, see Figure 2). These aP
 vaccines were developed to have less side effects than the older wP
 vaccines and are now the only form administered in the United States.
 
-Let's return to our CDC data plot and examine what happened after the
+Let’s return to our CDC data plot and examine what happened after the
 switch to the acellular pertussis (aP) vaccination program.
 
 > Q2. Using the ggplot geom_vline() function add lines to your previous
 > plot for the 1946 introduction of the wP vaccine and the 1996 switch
 > to aP vaccine (see example in the hint below). What do you notice?
 
-::::: cell
-``` {.r .cell-code}
+``` r
 ggplot(cdc) +
   aes(Year, No..Reported.Pertussis.Cases) +
   geom_point() +
@@ -156,15 +137,10 @@ ggplot(cdc) +
   )
 ```
 
-::: {.cell-output .cell-output-stderr}
     Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
     ℹ Please use `linewidth` instead.
-:::
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-2-1.png)
-:::
-:::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-2-1.png)
 
 I notice that after the wP vaccine, there is a sharp decline in the
 number of cases. Interestingly, when they switched to the aP vaccine,
@@ -198,12 +174,12 @@ https://www.cmi-pb.org/
 
 The CMI-PB API (like most APIs) sends responses in JSON format. Briefly,
 JSON data is formatted as a series of key-value pairs, where a
-particular word ("key") is associated with a particular value. An
+particular word (“key”) is associated with a particular value. An
 example of the JSON format for Ab titer data is shown below:
 
-{ "specimen_id":1, "isotype":"IgG", "is_antigen_specific":true,
-"antigen":"PT", "ab_titer":68.5661390514946, "unit":"IU/ML",
-"lower_limit_of_detection":0.53 } To read these types of files into R we
+{ “specimen_id”:1, “isotype”:“IgG”, “is_antigen_specific”:true,
+“antigen”:“PT”, “ab_titer”:68.5661390514946, “unit”:“IU/ML”,
+“lower_limit_of_detection”:0.53 } To read these types of files into R we
 will use the read_json() function from the jsonlite package. Note that
 if you want to do more advanced querys of APIs directly from R you will
 likely want to explore the more full featured rjson package. The big
@@ -211,14 +187,12 @@ advantage of using jsonlite for our current purposes is that it can
 simplify JSON key-value pair arrays into R data frames without much
 additional effort on our part.
 
-:::: cell
-``` {.r .cell-code}
+``` r
 library(jsonlite)
 subject <- read_json("https://www.cmi-pb.org/api/subject", simplifyVector = TRUE) 
 head(subject, 3)
 ```
 
-::: {.cell-output .cell-output-stdout}
       subject_id infancy_vac biological_sex              ethnicity  race
     1          1          wP         Female Not Hispanic or Latino White
     2          2          wP         Female Not Hispanic or Latino White
@@ -227,58 +201,42 @@ head(subject, 3)
     1    1986-01-01    2016-09-12 2020_dataset
     2    1968-01-01    2019-01-28 2020_dataset
     3    1983-01-01    2016-10-10 2020_dataset
-:::
-::::
 
 > Q3.2 How many subjects are in the dataset?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 nrow(subject)
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] 172
-:::
-::::
 
 > Q4. How many aP and wP infancy vaccinated subjects are in the dataset?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 table(subject$infancy_vac)
 ```
 
-::: {.cell-output .cell-output-stdout}
 
     aP wP 
     87 85 
-:::
-::::
 
 > Q5. How many Male and Female subjects/patients are in the dataset?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 table(subject$biological_sex)
 ```
 
-::: {.cell-output .cell-output-stdout}
 
     Female   Male 
        112     60 
-:::
-::::
 
 > Q6. What is the breakdown of race and biological sex (e.g. number of
-> Asian females, White males etc...)?
+> Asian females, White males etc…)?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 table(subject$biological_sex, subject$race)
 ```
 
-::: {.cell-output .cell-output-stdout}
             
              American Indian/Alaska Native Asian Black or African American
       Female                             0    32                         2
@@ -291,8 +249,6 @@ table(subject$biological_sex, subject$race)
              Unknown or Not Reported White
       Female                      14    48
       Male                         7    32
-:::
-::::
 
 ## Side Note: Working with Dates
 
@@ -302,56 +258,40 @@ annoying to work with at the best of times. However, in R we have the
 excellent lubridate package, which can make life allot easier. Here is a
 quick example to get you started:
 
-What is today's date:
+What is today’s date:
 
-:::::: cell
-``` {.r .cell-code}
+``` r
 library(lubridate)
 ```
 
-::: {.cell-output .cell-output-stderr}
 
     Attaching package: 'lubridate'
-:::
 
-::: {.cell-output .cell-output-stderr}
     The following objects are masked from 'package:base':
 
         date, intersect, setdiff, union
-:::
 
-``` {.r .cell-code}
+``` r
 today()
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] "2025-12-05"
-:::
-::::::
 
 How many days have passed since new year 2000:
 
-:::: cell
-``` {.r .cell-code}
+``` r
 today() - ymd("2000-01-01")
 ```
 
-::: {.cell-output .cell-output-stdout}
     Time difference of 9470 days
-:::
-::::
 
 What is this in years?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 time_length( today() - ymd("2000-01-01"),  "years")
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] 25.92745
-:::
-::::
 
 Note that here we are using the ymd() function to tell lubridate the
 format of our particular date and then the time_length() function to
@@ -361,84 +301,61 @@ convert days to years.
 > individuals, (ii) the average age of aP individuals; and (iii) are
 > they significantly different?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 subject$age <- today() - ymd(subject$year_of_birth)
 head(subject$age)
 ```
 
-::: {.cell-output .cell-output-stdout}
     Time differences in days
     [1] 14583 21158 15679 13853 12757 13853
-:::
-::::
 
-::::::: cell
-``` {.r .cell-code}
+``` r
 library(dplyr)
 ```
 
-::: {.cell-output .cell-output-stderr}
 
     Attaching package: 'dplyr'
-:::
 
-::: {.cell-output .cell-output-stderr}
     The following objects are masked from 'package:stats':
 
         filter, lag
-:::
 
-::: {.cell-output .cell-output-stderr}
     The following objects are masked from 'package:base':
 
         intersect, setdiff, setequal, union
-:::
 
-``` {.r .cell-code}
+``` r
 ap <- subject %>% filter(infancy_vac == "aP")
 
 round( summary( time_length( ap$age, "years" ) ) )
 ```
 
-::: {.cell-output .cell-output-stdout}
        Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
          23      27      28      28      29      35 
-:::
-:::::::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 # wP
 wp <- subject %>% filter(infancy_vac == "wP")
 round( summary( time_length( wp$age, "years" ) ) )
 ```
 
-::: {.cell-output .cell-output-stdout}
        Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
          23      33      35      37      40      58 
-:::
-::::
 
 > Q8. Determine the age of all individuals at time of boost?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 int <- ymd(subject$date_of_boost) - ymd(subject$year_of_birth)
 age_at_boost <- time_length(int, "year")
 head(age_at_boost)
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] 30.69678 51.07461 33.77413 28.65982 25.65914 28.77481
-:::
-::::
 
 > Q9. With the help of a faceted boxplot or histogram (see below), do
 > you think these two groups are significantly different?
 
-::::: cell
-``` {.r .cell-code}
+``` r
 ggplot(subject) +
   aes(time_length(age, "year"),
       fill=as.factor(infancy_vac)) +
@@ -447,56 +364,39 @@ ggplot(subject) +
   xlab("Age in years")
 ```
 
-::: {.cell-output .cell-output-stderr}
     `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
-:::
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-15-1.png)
-:::
-:::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-15-1.png)
 
-:::: cell
-``` {.r .cell-code}
+``` r
 x <- t.test(time_length( wp$age, "years" ),
        time_length( ap$age, "years" ))
 
 x$p.value
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] 2.372101e-23
-:::
-::::
 
 Yes, these groups are significantly different.
 
 ## Joining multiple tables
 
-::: cell
-``` {.r .cell-code}
+``` r
 specimen <- read_json("https://www.cmi-pb.org/api/specimen", simplifyVector = TRUE)
 titer <- read_json("https://www.cmi-pb.org/api/plasma_ab_titer", simplifyVector = TRUE)
 ```
-:::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 meta <- left_join(specimen, subject, by = "subject_id")
 dim(meta)
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] 1503   14
-:::
-::::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 head(meta)
 ```
 
-::: {.cell-output .cell-output-stdout}
       specimen_id subject_id actual_day_relative_to_boost
     1           1          1                           -3
     2           2          1                            1
@@ -525,53 +425,39 @@ head(meta)
     4 14583 days
     5 14583 days
     6 14583 days
-:::
-::::
 
 > Q10. Now using the same procedure join meta with titer data so we can
 > further analyze this data in terms of time of visit aP/wP, male/female
 > etc.
 
-:::: cell
-``` {.r .cell-code}
+``` r
 abdata <- inner_join(titer, meta, by = "specimen_id")
 dim(abdata)
 ```
 
-::: {.cell-output .cell-output-stdout}
     [1] 52576    21
-:::
-::::
 
 > Q11. How many specimens (i.e. entries in abdata) do we have for each
 > isotype?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 table(abdata$isotype)
 ```
 
-::: {.cell-output .cell-output-stdout}
 
       IgE   IgG  IgG1  IgG2  IgG3  IgG4 
      6698  5389 10117 10124 10124 10124 
-:::
-::::
 
-> Q12. What are the different \$dataset values in abdata and what do you
-> notice about the number of rows for the most "recent" dataset?
+> Q12. What are the different $dataset values in abdata and what do you
+> notice about the number of rows for the most “recent” dataset?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 table(abdata$dataset)
 ```
 
-::: {.cell-output .cell-output-stdout}
 
     2020_dataset 2021_dataset 2022_dataset 2023_dataset 
            31520         8085         7301         5670 
-:::
-::::
 
 The most recent dataset has the least amount of rows.
 
@@ -580,13 +466,11 @@ The most recent dataset has the least amount of rows.
 Now using our joined/merged/linked abdata dataset filter() for IgG
 isotype.
 
-:::: cell
-``` {.r .cell-code}
+``` r
 igg <- abdata %>% filter(isotype == "IgG")
 head(igg)
 ```
 
-::: {.cell-output .cell-output-stdout}
       specimen_id isotype is_antigen_specific antigen        MFI MFI_normalised
     1           1     IgG                TRUE      PT   68.56614       3.736992
     2           1     IgG                TRUE     PRN  332.12718       2.602350
@@ -622,14 +506,11 @@ head(igg)
     4 15679 days
     5 15679 days
     6 15679 days
-:::
-::::
 
 > Q13. Complete the following code to make a summary boxplot of Ab titer
 > levels (MFI) for all antigens:
 
-::::: cell
-``` {.r .cell-code}
+``` r
 ggplot(igg) +
   aes(MFI_normalised, antigen) +
   geom_boxplot() + 
@@ -637,15 +518,10 @@ ggplot(igg) +
   facet_wrap(vars(visit), nrow=2)
 ```
 
-::: {.cell-output .cell-output-stderr}
     Warning: Removed 5 rows containing non-finite outside the scale range
     (`stat_boxplot()`).
-:::
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-24-1.png)
-:::
-:::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-24-1.png)
 
 > Q14. What antigens show differences in the level of IgG antibody
 > titers recognizing them over time? Why these and not others?
@@ -656,8 +532,7 @@ and FHA. These antigens are likely presnent in the aP vaccine so thats
 why we see an increase of MFI for these antigens around the later
 visits.
 
-::::: cell
-``` {.r .cell-code}
+``` r
 ggplot(igg) +
   aes(MFI_normalised, antigen, col=infancy_vac ) +
   geom_boxplot(show.legend = FALSE) + 
@@ -666,18 +541,12 @@ ggplot(igg) +
   theme_bw()
 ```
 
-::: {.cell-output .cell-output-stderr}
     Warning: Removed 5 rows containing non-finite outside the scale range
     (`stat_boxplot()`).
-:::
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-25-1.png)
-:::
-:::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-25-1.png)
 
-::::: cell
-``` {.r .cell-code}
+``` r
 igg %>% filter(visit != 8) %>%
 ggplot() +
   aes(MFI_normalised, antigen, col=infancy_vac ) +
@@ -686,24 +555,18 @@ ggplot() +
   facet_wrap(vars(infancy_vac, visit), nrow=2)
 ```
 
-::: {.cell-output .cell-output-stderr}
     Warning: Removed 5 rows containing non-finite outside the scale range
     (`stat_boxplot()`).
-:::
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-26-1.png)
-:::
-:::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-26-1.png)
 
 > Q15. Filter to pull out only two specific antigens for analysis and
 > create a boxplot for each. You can chose any you like. Below I picked
-> a "control" antigen ("OVA", that is not in our vaccines) and a clear
-> antigen of interest ("PT", Pertussis Toxin, one of the key virulence
+> a “control” antigen (“OVA”, that is not in our vaccines) and a clear
+> antigen of interest (“PT”, Pertussis Toxin, one of the key virulence
 > factors produced by the bacterium B. pertussis).
 
-:::: cell
-``` {.r .cell-code}
+``` r
 filter(igg, antigen=="OVA") %>%
   ggplot() +
   aes(MFI_normalised, col=infancy_vac) +
@@ -713,13 +576,9 @@ filter(igg, antigen=="OVA") %>%
   theme_bw()
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-27-1.png)
-:::
-::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-27-1.png)
 
-:::: cell
-``` {.r .cell-code}
+``` r
 filter(igg, antigen=="PT") %>%
   ggplot() +
   aes(MFI_normalised, col=infancy_vac) +
@@ -729,10 +588,7 @@ filter(igg, antigen=="PT") %>%
   theme_bw()
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-28-1.png)
-:::
-::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-28-1.png)
 
 > Q16. What do you notice about these two antigens time courses and the
 > PT data in particular?
@@ -748,8 +604,7 @@ Not really. The responses are fairly similar.
 Lets finish this section by looking at the 2021 dataset IgG PT antigen
 levels time-course:
 
-:::: cell
-``` {.r .cell-code}
+``` r
 abdata.21 <- abdata %>% filter(dataset == "2021_dataset")
 
 abdata.21 %>% 
@@ -767,15 +622,11 @@ abdata.21 %>%
        subtitle = "Dashed lines indicate day 0 (pre-boost) and 14 (apparent peak levels)")
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-29-1.png)
-:::
-::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-29-1.png)
 
 > Q18. Does this trend look similar for the 2020 dataset?
 
-:::: cell
-``` {.r .cell-code}
+``` r
 abdata.21 <- abdata %>% filter(dataset == "2020_dataset")
 
 abdata.21 %>% 
@@ -793,10 +644,7 @@ abdata.21 %>%
        subtitle = "Dashed lines indicate day 0 (pre-boost) and 14 (apparent peak levels)")
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-30-1.png)
-:::
-::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-30-1.png)
 
 The trends for 2020 and 2021 are somewhat similar although there are
 some long-term points for 2020.
@@ -806,7 +654,7 @@ some long-term points for 2020.
 For RNA-Seq data the API query mechanism quickly hits the web browser
 interface limit for file size. We will present alternative download
 mechanisms for larger CMI-PB datasets in the next section. However, we
-can still do "targeted" RNA-Seq querys via the web accessible API.
+can still do “targeted” RNA-Seq querys via the web accessible API.
 
 For example we can obtain RNA-Seq results for a specific ENSEMBLE gene
 identifier or multiple identifiers combined with the & character:
@@ -815,47 +663,37 @@ identifier or multiple identifiers combined with the & character:
 
 https://www.cmi-pb.org/api/v2/rnaseq?versioned_ensembl_gene_id=eq.ENSG00000211896.7
 The link above is for the key gene involved in expressing any IgG1
-antibody, namely the IGHG1 gene. Let's read available RNA-Seq data for
-this gene into R and investigate the time course of it's gene expression
+antibody, namely the IGHG1 gene. Let’s read available RNA-Seq data for
+this gene into R and investigate the time course of it’s gene expression
 values.
 
-::: cell
-``` {.r .cell-code}
+``` r
 url <- "https://www.cmi-pb.org/api/v2/rnaseq?versioned_ensembl_gene_id=eq.ENSG00000211896.7"
 
 rna <- read_json(url, simplifyVector = TRUE) 
 ```
-:::
 
-:::: cell
-``` {.r .cell-code}
+``` r
 #meta <- inner_join(specimen, subject)
 ssrna <- inner_join(rna, meta)
 ```
 
-::: {.cell-output .cell-output-stderr}
     Joining with `by = join_by(specimen_id)`
-:::
-::::
 
 > Q19. Make a plot of the time course of gene expression for IGHG1 gene
 > (i.e. a plot of visit vs. tpm).
 
-:::: cell
-``` {.r .cell-code}
+``` r
 ggplot(ssrna) +
   aes(visit, tpm, group=subject_id) +
   geom_point() +
   geom_line(alpha=0.2)
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-33-1.png)
-:::
-::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-33-1.png)
 
 > Q20.: What do you notice about the expression of this gene (i.e. when
-> is it at it's maximum level)?
+> is it at it’s maximum level)?
 
 The expression is at is maximum level at visit 4 (and visit 8 for one
 data point).
@@ -866,27 +704,22 @@ data point).
 It doesnt entirely match our antibody titer data. In the data for Q15 we
 saw our biggest peak for our PT antigen at around visit 4/5,
 however,these levels persist throughout visit 7. For our gene expression
-data we see a peak at visit 4 but we don't neccessarily see expression
+data we see a peak at visit 4 but we don’t neccessarily see expression
 of the pertussis gene throughout these days. Since antibodies can linger
 post expression our antibody titer data reflects that persistence.
 
 We can dig deeper and color and/or facet by infancy_vac status:
 
-:::: cell
-``` {.r .cell-code}
+``` r
 ggplot(ssrna) +
   aes(tpm, col=infancy_vac) +
   geom_boxplot() +
   facet_wrap(vars(visit))
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-34-1.png)
-:::
-::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-34-1.png)
 
-:::: cell
-``` {.r .cell-code}
+``` r
 ssrna %>%  
   filter(visit==4) %>% 
   ggplot() +
@@ -894,7 +727,4 @@ ssrna %>%
     geom_rug() 
 ```
 
-::: cell-output-display
-![](Class18_files/figure-markdown/unnamed-chunk-35-1.png)
-:::
-::::
+![](Class18.markdown_strict_files/figure-markdown_strict/unnamed-chunk-35-1.png)
