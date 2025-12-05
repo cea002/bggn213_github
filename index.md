@@ -20,7 +20,7 @@ Welcome to my repository for Bioinformatics 213 Fall 2025.
 
 ### *Introductory Material: Working With R*
 
-- **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](https://github.com/cea002/bggn213_github/tree/main/Class5)
+- **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](https://github.com/cea002/bggn213_github/tree/main/Class5/report.html)
 - **Class 6** – [Creating R Functions](https://github.com/cea002/bggn213_github/tree/main/Class6)
 - **Class 7** – [R Packages, working with CRAN, and Bioconductor](https://github.com/cea002/bggn213_github/tree/main/Class7)
 
