@@ -1,3 +1,18 @@
+---
+layout: default
+title: Bioinformatics Class
+---
+
+# Introduction to Bioinformatics
+
+<img src="https://raw.githubusercontent.com/bioboot/bimm143-2018/master/assets/img/dna_icon.png" width="250" style="display:block;margin:auto;"/>
+
+A demo site of students class website
+
+[View the Project on GitHub](https://github.com/cea002/bggn213_github)
+
+---
+
 # Bioinformatics class
 Welcome to my repository for Bioinformatics 213 Fall 2025.
 
