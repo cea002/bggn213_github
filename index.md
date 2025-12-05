@@ -21,17 +21,17 @@ Welcome to my repository for Bioinformatics 213 Fall 2025.
 ### *Introductory Material: Working With R*
 
 - **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](./MDs/Class05.md)
-- **Class 6** – [Creating R Functions](./Class6)
-- **Class 7** – [R Packages, working with CRAN, and Bioconductor](./Class7)
+- **Class 6** – [R Packages, working with CRAN, and Bioconductor](./MDs/Class06.md)
+- **Class 7** – [Introduction to machine learning for Bioinformatics](./MDs/Class07.md)
 
 ### *Using R and Other Tools for Bioinformatics Analysis*
 
-- **Class 8** – [An Introduction to Machine Learning (Hierarchical Clustering)](./Class8)
-- **Class 9** – [Analyzing High Dimensional Datasets and Unsupervised Learning](./Class9)
-- **Class 10** – [Structural Bioinformatics: Analyzing Protein Structure and Function](./Class10)
-- **Class 12** – [Drug Discovery: Techniques and Analysis](./Class12)
-- **Class 13** – [Genome Informatics and High-Throughput Sequencing](./Class13)
-- **Class 14** – [Transcriptomics and RNA-Seq Analysis](./Class14/)
+- **Class 8** – [Analyzing High Dimensional Datasets and Unsupervised Learning](./MDs/Class08.md)
+- **Class 9** – [Analyzing High Dimensional Datasets and Unsupervised Learning](./MDs/Class09.md)
+- **Class 10** – [Structural Bioinformatics: Analyzing Protein Structure and Function](./MDs/Class10.md)
+- **Class 12** – [Drug Discovery: Techniques and Analysis](./MDs/Class12.md)
+- **Class 13** – [Genome Informatics and High-Throughput Sequencing](./MDs/Class13.md)
+- **Class 14** – [Transcriptomics and RNA-Seq Analysis](./MDs/Class06.md)
 
 ---
 
