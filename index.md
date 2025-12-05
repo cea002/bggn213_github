@@ -31,8 +31,9 @@ Welcome to my repository for Bioinformatics 213 Fall 2025.
 - **Class 10** – [Structural Bioinformatics: Analyzing Protein Structure and Function](./MDs/Class10.md)
 - **Class 12** – [Drug Discovery: Techniques and Analysis](./MDs/Class12.md)
 - **Class 13** – [Genome Informatics and High-Throughput Sequencing](./MDs/Class13.md)
-- **Class 14** – [Transcriptomics and RNA-Seq Analysis](./MDs/Class06.md)
-
+- **Class 16** – [Analyzing sequencing data in the cloud](./MDs/Class16.md)
+- **Class 17** – [Genome informatics](./MDs/Class17.md)
+- **Class 18** – [Mini Project: Investigating Pertussis Resurgence](./MDs/Class18.md)
 ---
 
 Hosted on GitHub Pages — Theme by [orderedlist](https://github.com/orderedlist)
