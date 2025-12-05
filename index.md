@@ -5,7 +5,7 @@ title: Bioinformatics Class
 
 # Introduction to Bioinformatics
 
-<img src="https://raw.githubusercontent.com/bioboot/bimm143-2018/master/assets/img/dna_icon.png" width="250" style="display:block;margin:auto;"/>
+<img src="https://share.google/images/LwTHwmvMzLEvO2JKa" width="250" style="display:block;margin:auto;"/>
 
 A demo site of students class website
 
