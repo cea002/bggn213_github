@@ -1,11 +1,6 @@
 # Bioinformatics class
 Welcome to my repository for Bioinformatics 213 Fall 2025.
 
-## Index of material
-# Bioinformatics Class
-
-This is my repository for my Bioinformatics class from UC San Diego.
-
 ## Index of Material
 
 ### *Introductory Material: Working With R*
