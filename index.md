@@ -21,16 +21,16 @@ Courtney Anderson's website (PID:A69038035)
 
 - **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](./MDs/Class5.md)
 - **Class 6** – [R functions](./MDs/Class06.md)
-- **Class 7** – [R Packages, working with CRAN, and Bioconductor](./MDs/Class07.md)
+- **Class 7** – [Introduction to machine learning for Bioinformatics](./MDs/Class07.md)
 
 ### *Using R and Other Tools for Bioinformatics Analysis*
 
-- **Class 8** – [Introduction to machine learning for Bioinformatics](./MDs/Class08.md)
-- **Class 9** – [Analyzing High Dimensional Datasets and Unsupervised Learning](./MDs/Class09.md)
-- **Class 10** – [Structural Bioinformatics: Analyzing Protein Structure and Function](./MDs/Class10.md)
+- **Class 8** – [Analyzing High Dimensional Datasets and Unsupervised Learning](./MDs/Class08.md)
+- **Class 9** – [Structural Bioinformatics: Analyzing Protein Structure and Function](./MDs/Class09.md)
+- **Class 10** – [Halloween Mini Project](./MDs/Class10.md)
 - **Class 12** – [Drug Discovery: Techniques and Analysis](./MDs/Class12.md)
 - **Class 13** – [Genome Informatics and High-Throughput Sequencing](./MDs/Class13.md)
-- **Class 16** – [Analyzing sequencing data in the cloud](./MDs/Class16.md)
+- **Class 16** – [UNIX Basics](./MDs/Class16.md)
 - **Class 17** – [Genome informatics](./MDs/Class17.md)
 - **Class 18** – [Mini Project: Investigating Pertussis Resurgence](./MDs/Class18.md)
 
