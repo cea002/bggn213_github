@@ -34,6 +34,7 @@ Courtney Anderson's website (PID:A69038035)
 - **Class 17** – [Genome informatics](./MDs/Class17.md)
 - **Class 18** – [Mini Project: Investigating Pertussis Resurgence](./MDs/Class18.md)
 
+### *Thank you for a wonderful semester*
 
 ---
 
