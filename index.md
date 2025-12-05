@@ -5,16 +5,15 @@ title: Bioinformatics Class
 
 # Introduction to Bioinformatics
 
+Welcome to my repository for Bioinformatics 213 Fall 2025.
+
 <img src="https://csweb.rice.edu/sites/g/files/bxs4941/files/2023-02/DNA-data-strand-web.jpg" width="250" style="display:block;margin:auto;"/>
 
-A demo site of students class website
+Courtney Anderson's website (PID:A69038035)
 
 [View the Project on GitHub](https://github.com/cea002/bggn213_github)
 
 ---
-
-# Bioinformatics class
-Welcome to my repository for Bioinformatics 213 Fall 2025.
 
 ## Index of Material
 
