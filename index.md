@@ -20,7 +20,7 @@ Welcome to my repository for Bioinformatics 213 Fall 2025.
 
 ### *Introductory Material: Working With R*
 
-- **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](./MDs/Class5.md)
+- **Class 5** – [Basic Data Exploration and Visualization in R HTML, MD, Rmd](./MDs/Class05.md)
 - **Class 6** – [Creating R Functions](./Class6)
 - **Class 7** – [R Packages, working with CRAN, and Bioconductor](./Class7)
 
